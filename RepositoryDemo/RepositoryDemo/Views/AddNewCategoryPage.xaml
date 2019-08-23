@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RepositoryDemo.Views.AddNewCategoryPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="DATOS DE CATEGORIA:" FontSize="Large" FontAttributes="Bold"/>
+            <StackLayout>
+                <Label Text="Name:"/>
+                <Entry Placeholder="introduzca Nombre de Categoria" Text="{Binding CategoryNameF}"/>
+                <Label Text="Description:"/>
+                <Entry Placeholder="Introduzca Descripción" Text="{Binding DescriptionF}"/>
+                <!--DATOS DE LOS PRODUCTOS-->
+                <Label Text="DATOS DE PRODUCTOS:" FontSize="Large" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Name"/>
+                    <Entry Placeholder="ingrese Nombre de Producto" Text="{Binding ProductNameF}"/>
+                    <Button Text="Add" Command="AddProductCommand"/>
+                </StackLayout>
+                <StackLayout>
+                    <ListView ItemsSource="{Binding Products}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding ProductName}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                
+            </StackLayout>
+            <Label Text="{Binding MessageStatus}"/>
+            <Button Text="Guardar" Command="{Binding SaveCategoryCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
